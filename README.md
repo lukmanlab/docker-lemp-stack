@@ -13,7 +13,7 @@ Go-to `app` directory
 
 Git Clone specific branch and get only last commit for fast-download :D, make sure you install `Git` in your computer.
 
-`$ git clone -b 5.0.3 --depth 1 https://github.com/WordPress/WordPress.git`
+`$ git clone -b 5.0.3 --depth 1 https://github.com/WordPress/WordPress.git .`
 
 ## Run Docker Compose
 
