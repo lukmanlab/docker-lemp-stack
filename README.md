@@ -1,4 +1,4 @@
-# docker-lemp-stack
+# Docker LEMP Stack for Wordpress
 Repository Docker Compose - LEMP Stack for Deploy Wordpress manually.
 
 ## Create Directory Needed
@@ -9,11 +9,11 @@ Create folder needed: `app`, `log` and `database`. You can create folder by GUI 
 
 ## Download Wordpress to `app` folder
 
-Go-to app directory
+Go-to `app` directory
 
 `$ cd app`
 
-Git Clone specific branch and get only last commit, make sure you install `Git` in your computer.
+Git Clone specific branch and get only last commit for fast-download :D, make sure you install `Git` in your computer.
 
 `$ git clone -b 5.0.3 --depth 1 https://github.com/WordPress/WordPress.git`
 
