@@ -1,24 +1,24 @@
 # Docker LEMPP Stack for Wordpress
 Repository Docker LEMPP Stack with Docker Compose for Deploy Wordpress manually.
 
+* images:
+  - nginx:alpine
+  - php:7.4-fpm-alpine
+  - mysql:5.7
+
 ## Create Directory Needed
-Create folder needed: `app`, `log` and `database`. You can create folder by GUI metode (Right Click-New-Folder).
+Create folder needed: `log`. You can create folder by GUI metode.
 
-`$ mkdir app log database`
-
-## Download Wordpress to `app` folder
-Go-to `app` directory
-
-`$ cd app`
-
-Git Clone specific branch and get only last commit for fast-download :D, make sure you install `Git` in your computer.
-
-`$ git clone -b 5.0.3 --depth 1 https://github.com/WordPress/WordPress.git .`
+```
+$ mkdir log
+```
 
 ## Run Docker Compose
 
 In root folder execute command docker-compose
 
-`docker-compose up -d`
+```
+docker-compose up -d
+```
 
-Check on YouTube: https://youtu.be/yB9VtsQucIM
+Updated: 14 August 2020
