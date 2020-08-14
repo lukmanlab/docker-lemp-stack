@@ -1,48 +1,48 @@
 version: '3'
 services: 
     nginx:
-        image: "nginx:alpine"
+        build:
+            context: .
+            dockerfile: Dockerfile.nginx
         ports:
             - "8080:80"
         depends_on:
             - php
             - mysql
         volumes:
-            - ./app:/usr/share/nginx/html
+            - app:/usr/share/nginx/html/wordpress:rw
             - ./nginx:/etc/nginx/conf.d
             - ./log:/var/log/nginx
     
     php:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.php
         ports:
             - "9001:9000"
         volumes:
-            - ./app:/usr/share/nginx/html
+            - app:/usr/share/nginx/html/wordpress:rw
     
     mysql:
         image: "mysql:5.7"
         ports:
             - "3306:3306"
         volumes:
-            - ./database:/var/lib/mysql
+            - database:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: P@ssword123
             MYSQL_DATABASE: wordpress
             MYSQL_USER: wpuser
             MYSQL_PASSWORD: wppassword
     
-    pma:
-        image: "phpmyadmin/phpmyadmin"
-        ports:
-            - "8081:80"
-        environment:
-            PMA_HOST: mysql
-            MYSQL_ROOT_PASSWORD: P@ssword123
+    # pma:
+    #     image: "phpmyadmin/phpmyadmin"
+    #     ports:
+    #         - "8081:80"
+    #     environment:
+    #         PMA_HOST: mysql
+    #         MYSQL_ROOT_PASSWORD: P@ssword123
 
 volumes:
     app:
     database:
-            
-

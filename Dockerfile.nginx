@@ -1,0 +1,8 @@
+FROM nginx:alpine
+
+RUN apk update \
+    && apk add git \
+    && git clone -b 5.5 --depth 1 https://github.com/WordPress/WordPress.git /usr/share/nginx/html/wordpress \
+    && set -x; addgroup -g 82 -S www-data; adduser -u 82 -D -S -G www-data www-data; \
+    chown -R www-data:www-data /usr/share/nginx/html/wordpress
+    
